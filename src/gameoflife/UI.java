@@ -39,11 +39,20 @@ public class UI
         return false;
     }
 
-    public void giveLife(int row, int col, State state){
-        if(checkCellLife(row, col, state) == true){
-            state.setBoardCell(row, col, Constants.PLAYER);
+    public void giveLife(State state){
+        for(int row = 0; row < Constants.BOARD_SIZE; row++){
+            for(int col = 0; col< Constants.BOARD_SIZE; col++){
+                if(state.getBoardCell(row, col) == Constants.PLAYER){
+                    if(checkCellLife(row, col, state) == true){
+                        //Do nothing to the center square
+                    }else{
+                        state.setBoardCell(row, col, Constants.BLANK);
+                    }
+                }
+            }
         }
     }
+    
     public boolean checkCellLife(int row, int col, State state){
         int life = 0;
         if(state.getBoardCell(row,col) == Constants.PLAYER){

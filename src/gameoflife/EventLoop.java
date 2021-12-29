@@ -50,6 +50,9 @@ public class EventLoop {
                     state.setGameState(Constants.GET_PLAYER_MOVE);
                 }
             }else if(gameState == Constants.RUN){
+                ui.giveLife(state);
+                ui.printBoard(state);
+                System.out.println("Test");
                 
             }else if (gameState == Constants.GAME_OVER) {
                 if (ui.startNewGame()) {
