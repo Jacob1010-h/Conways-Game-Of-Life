@@ -51,6 +51,7 @@ public class EventLoop {
                 }
             }else if(gameState == Constants.RUN){
                 ui.createNewBoard(state);
+                ui.clearScreen();
                 for(int i = 0; i<5; i++){
                     ui.giveLife(state);
                     ui.printNewBoard(state);
