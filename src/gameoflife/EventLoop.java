@@ -20,6 +20,7 @@ public class EventLoop {
                 state.setGameState(Constants.WELCOME);
 
             }else if (gameState == Constants.WELCOME){
+                ui.clearScreen();
                 ui.welcomePlayer(state);
                 state.setGameState(Constants.GET_PLAYER_MOVE);
 
@@ -41,6 +42,7 @@ public class EventLoop {
             }else if (gameState == Constants.MAKE_MOVE) {
                 ui.printMove(state, row, col);
                 state.setBoardCell(row-1, col-1, state.getWhoseMove());
+                ui.clearScreen();
                 state.setGameState(Constants.CHECK_STOP);
             }else if (gameState == Constants.CHECK_STOP){
                 ui.printBoard(state);
@@ -48,17 +50,22 @@ public class EventLoop {
                     state.setGameState(Constants.RUN);
                 }else{
                     state.setGameState(Constants.GET_PLAYER_MOVE);
+                    ui.clearScreen();
                 }
             }else if(gameState == Constants.RUN){
                 ui.createNewBoard(state);
-                ui.clearScreen();
-                for(int i = 0; i<5; i++){
+                for(int i = 0; i<10; i++){
+                    ui.clearScreen();
                     ui.giveLife(state);
                     ui.printNewBoard(state);
-                    System.out.println("Test");
                     ui.clearBoard(state);
                     ui.copyNewBoard(state);
-                    
+                    System.out.println("Iteration " + (i+1));
+                    try {
+                        Thread.sleep(1*1000);
+                    } catch (InterruptedException e) {
+                        System.out.println(e);
+                    }
                 }
                 state.setGameState(Constants.GAME_OVER);
                 
