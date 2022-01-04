@@ -1,4 +1,5 @@
 package gameoflife;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -248,10 +249,16 @@ public class UI
         System.out.println(Constants.TITLE);
     }
 
-    public static void clearScreen() {   
-        System.out.print("\033[H\033[2J");   
-        System.out.flush();   
-    } 
+    public void clearScreen() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            }
+            else {
+                System.out.print("\033\143");
+            }
+        } catch (IOException | InterruptedException ex) {}
+    }
     
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
