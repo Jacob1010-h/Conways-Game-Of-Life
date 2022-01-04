@@ -248,10 +248,10 @@ public class UI
         System.out.println(Constants.TITLE);
     }
 
-    public void clear(){
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
+    public static void clearScreen() {   
+        System.out.print("\033[H\033[2J");   
+        System.out.flush();   
+    } 
     
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
