@@ -51,9 +51,12 @@ public class EventLoop {
                 }
             }else if(gameState == Constants.RUN){
                 ui.createNewBoard(state);
-                ui.giveLife(state);
-                ui.printNewBoard(state);
-                System.out.println("Test");
+                for(int i = 0; i<5; i++){
+                    ui.giveLife(state);
+                    ui.printNewBoard(state);
+                    System.out.println("Test");
+                    ui.copyNewBoard(state);
+                }
                 state.setGameState(Constants.GAME_OVER);
                 
             }else if (gameState == Constants.GAME_OVER) {

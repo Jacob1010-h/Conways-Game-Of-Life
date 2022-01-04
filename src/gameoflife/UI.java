@@ -76,7 +76,18 @@ public class UI
         }
     }
 
+    //Copy New Board
+    public void copyNewBoard(State state){
+        for(int row = 0; row < Constants.BOARD_SIZE; row++){
+            for(int col = 0; col < Constants.BOARD_SIZE; col++){
+                if(state.getNewBoardCell(row,col) == Constants.PLAYER){
+                    state.setBoardCell(row, col, Constants.PLAYER);
+                }
+            }
+        }
+    }
 
+    //Life functions
     public void giveLife(State state){
         for(int row = 1; row < Constants.BOARD_SIZE-1; row++){
             for(int col = 1; col< Constants.BOARD_SIZE-1; col++){
