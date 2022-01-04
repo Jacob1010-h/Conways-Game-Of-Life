@@ -50,6 +50,13 @@ public class UI
         }
     }
 
+    public void clearNewBoard(State state){
+        for(int row = 0; row < Constants.BOARD_SIZE; row++){
+            for(int col =0; col < Constants.BOARD_SIZE; col++){
+                state.setNewBoardCell(row, col, Constants.BLANK);
+            }
+        }
+    }
 
     public void printNewBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
@@ -74,8 +81,17 @@ public class UI
         for(int row = 1; row < Constants.BOARD_SIZE-1; row++){
             for(int col = 1; col< Constants.BOARD_SIZE-1; col++){
                 //if(state.getBoardCell(row, col) == Constants.PLAYER){
-                if(checkCellLife(row, col, state) != true){
+                if(checkCellLife(row, col, state) == false){
                     state.setNewBoardCell(row, col, Constants.BLANK);
+                }else if(checkCellLife(row, col, state) == true){
+                    state.setNewBoardCell(row, col, Constants.PLAYER);
+                }
+                if(checkCellLifeDeath(row, col, state) == false){
+                    if(state.getBoardCell(row, col) == Constants.PLAYER){
+                        
+                    }else{
+                        state.setNewBoardCell(row, col, Constants.BLANK);
+                    }
                 }else{
                     state.setNewBoardCell(row, col, Constants.PLAYER);
                 }
@@ -83,61 +99,88 @@ public class UI
             }
         }
     }
-
-    /* 
-    //Life Functions
-    public void giveLife(State state){
-        for(int row = 0; row < Constants.BOARD_SIZE; row++){
-            for(int col = 0; col< Constants.BOARD_SIZE; col++){
-                if(state.getBoardCell(row, col) == Constants.PLAYER){
-                    if(checkCellLife(row, col, state) != true){
-                        state.setBoardCell(row, col, Constants.BLANK);
-                    }
-                }
-            }
-        }
-    } 
-    */
     
     public boolean checkCellLife(int row, int col, State state){
         int life = 0;
-    
-        //Bottom Right
-        if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
-            life++;
+        if(state.getBoardCell(row, col) == Constants.PLAYER){
+            //Bottom Right
+            if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
+                life++;
+            }
+            //Bottom
+            if(state.getBoardCell(row+1,col) == Constants.PLAYER){
+                life++;
+            }
+            //Bottom Left
+            if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Left Mid
+            if(state.getBoardCell(row, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Top Left
+            if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Top
+            if(state.getBoardCell(row-1, col) == Constants.PLAYER){
+                life++;
+            }
+            //Top Right
+            if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
+                life++;
+            }
+            //Right
+            if(state.getBoardCell(row, col+1) == Constants.PLAYER){
+                life++;
+            }
+            
+            //Life Returns
+            if(life == 2 || life == 3)return true;
         }
-        //Bottom
-        if(state.getBoardCell(row+1,col) == Constants.PLAYER){
-            life++;
+        return false;
+    }
+
+    public boolean checkCellLifeDeath(int row, int col, State state){
+        int life = 0;
+        if(state.getBoardCell(row, col) == Constants.BLANK){
+            //Bottom Right
+            if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
+                life++;
+            }
+            //Bottom
+            if(state.getBoardCell(row+1,col) == Constants.PLAYER){
+                life++;
+            }
+            //Bottom Left
+            if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Left Mid
+            if(state.getBoardCell(row, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Top Left
+            if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
+                life++;
+            }
+            //Top
+            if(state.getBoardCell(row-1, col) == Constants.PLAYER){
+                life++;
+            }
+            //Top Right
+            if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
+                life++;
+            }
+            //Right
+            if(state.getBoardCell(row, col+1) == Constants.PLAYER){
+                life++;
+            }
+            
+            //Life Returns
+            if(life == 3)return true;
         }
-        //Bottom Left
-        if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
-            life++;
-        }
-        //Left Mid
-        if(state.getBoardCell(row, col-1) == Constants.PLAYER){
-            life++;
-        }
-        //Top Left
-        if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
-            life++;
-        }
-        //Top
-        if(state.getBoardCell(row-1, col) == Constants.PLAYER){
-            life++;
-        }
-        //Top Right
-        if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
-            life++;
-        }
-        //Right
-        if(state.getBoardCell(row, col+1) == Constants.PLAYER){
-            life++;
-        }
-        
-        //Life Returns
-        if(life == 2 || life == 3)return true;
-    
         return false;
     }
 
@@ -212,6 +255,14 @@ public class UI
         }
     }
 
+    public void clearBoard(State state){
+        for(int row = 0; row < Constants.BOARD_SIZE; row++){
+            for(int col =0; col < Constants.BOARD_SIZE; col++){
+                state.setBoardCell(row, col, Constants.BLANK);
+            }
+        }
+    }
+    
     public void printInvalidRowOrColumn() {
         System.out.printf(Constants.INVALID_ROW_OR_COLUMN);
         System.out.println();

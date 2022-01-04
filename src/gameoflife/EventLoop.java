@@ -59,13 +59,12 @@ public class EventLoop {
             }else if (gameState == Constants.GAME_OVER) {
                 if (ui.startNewGame()) {
                     state.setGameState(Constants.STANDBY);
-                    for(int row = 0; row < Constants.BOARD_SIZE; row++){
-                        for(int col =0; col < Constants.BOARD_SIZE; col++){
-                            state.setBoardCell(row, col, Constants.BLANK);
-                        }
-                    }
+                    ui.clearBoard(state);
+                    ui.clearNewBoard(state);
                 } else {
                     state.setGameState(Constants.QUIT_PROGRAM);
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
                 }
             }
         }
