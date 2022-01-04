@@ -17,7 +17,7 @@ public class UI
     // Utility methods
     public String getXOrO(int whoseMove) {
         if(whoseMove == 1){
-            return "⬛";
+            return "?";
         }else{
             return " ";
         }
@@ -39,64 +39,110 @@ public class UI
         return false;
     }
 
+    //New Board Functions
+    public void createNewBoard(State state){
+        for(int row = 0; row < Constants.BOARD_SIZE; row++){
+            for(int col = 0; col< Constants.BOARD_SIZE; col++){
+                if(state.getBoardCell(row,col) == Constants.PLAYER){
+                    state.setNewBoardCell(row, col, Constants.PLAYER);
+                }
+            }
+        }
+    }
+
+
+    public void printNewBoard(State state) {
+        System.out.println(Constants.DIVIDER_STRING);
+        for (int row = 0; row < Constants.BOARD_SIZE; row++) {
+            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getNewBoardCell(row, 0)), 
+                getXOrO(state.getNewBoardCell(row, 1)), 
+                getXOrO(state.getNewBoardCell(row, 2)),
+                getXOrO(state.getNewBoardCell(row, 3)),
+                getXOrO(state.getNewBoardCell(row, 4)),
+                getXOrO(state.getNewBoardCell(row, 5)),
+                getXOrO(state.getNewBoardCell(row, 6)),
+                getXOrO(state.getNewBoardCell(row, 7)),
+                getXOrO(state.getNewBoardCell(row, 8)),
+                getXOrO(state.getNewBoardCell(row, 9)));
+            System.out.println();
+            System.out.println(Constants.DIVIDER_STRING);
+        }
+    }
+
+
+    public void giveLife(State state){
+        for(int row = 1; row < Constants.BOARD_SIZE-1; row++){
+            for(int col = 1; col< Constants.BOARD_SIZE-1; col++){
+                //if(state.getBoardCell(row, col) == Constants.PLAYER){
+                if(checkCellLife(row, col, state) != true){
+                    state.setNewBoardCell(row, col, Constants.BLANK);
+                }else{
+                    state.setNewBoardCell(row, col, Constants.PLAYER);
+                }
+                //}
+            }
+        }
+    }
+
+    /* 
+    //Life Functions
     public void giveLife(State state){
         for(int row = 0; row < Constants.BOARD_SIZE; row++){
             for(int col = 0; col< Constants.BOARD_SIZE; col++){
                 if(state.getBoardCell(row, col) == Constants.PLAYER){
-                    if(checkCellLife(row, col, state) == true){
-                        //Do nothing to the center square
-                    }else{
+                    if(checkCellLife(row, col, state) != true){
                         state.setBoardCell(row, col, Constants.BLANK);
                     }
                 }
             }
         }
-    }
+    } 
+    */
     
     public boolean checkCellLife(int row, int col, State state){
         int life = 0;
-        if(state.getBoardCell(row,col) == Constants.PLAYER){
-            //Bottom Right
-            if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
-                life++;
-            }
-            //Bottom
-            if(state.getBoardCell(row+1,col) == Constants.PLAYER){
-                life++;
-            }
-            //Bottom Left
-            if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Left Mid
-            if(state.getBoardCell(row, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Top Left
-            if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Top
-            if(state.getBoardCell(row-1, col) == Constants.PLAYER){
-                life++;
-            }
-            //Top Right
-            if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
-                life++;
-            }
-            //Right
-            if(state.getBoardCell(row, col+1) == Constants.PLAYER){
-                life++;
-            }
-            
-            //Life Returns
-            if(life == 2 || life == 3)return true;
+    
+        //Bottom Right
+        if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
+            life++;
         }
+        //Bottom
+        if(state.getBoardCell(row+1,col) == Constants.PLAYER){
+            life++;
+        }
+        //Bottom Left
+        if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
+            life++;
+        }
+        //Left Mid
+        if(state.getBoardCell(row, col-1) == Constants.PLAYER){
+            life++;
+        }
+        //Top Left
+        if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
+            life++;
+        }
+        //Top
+        if(state.getBoardCell(row-1, col) == Constants.PLAYER){
+            life++;
+        }
+        //Top Right
+        if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
+            life++;
+        }
+        //Right
+        if(state.getBoardCell(row, col+1) == Constants.PLAYER){
+            life++;
+        }
+        
+        //Life Returns
+        if(life == 2 || life == 3)return true;
+    
         return false;
     }
 
 
-
+    //MISC
     public int getMoveRow(int whoseMove) {
         int row = 0;
         while (row <= 0 || row >= 11) {

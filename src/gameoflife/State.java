@@ -8,6 +8,7 @@ public class State
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
     private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
+    private int[][] Newboard = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
 
     public int getGameState() {
         return gameState;
@@ -32,5 +33,14 @@ public class State
     public void setBoardCell(int row, int col, int value) {
         this.board[row][col] = value;
     }
+
+    public int getNewBoardCell(int row, int col) {
+        return this.Newboard[row][col];
+    }
+
+    public void setNewBoardCell(int row, int col, int value) {
+        this.Newboard[row][col] = value;
+    }
+    
 
 }
