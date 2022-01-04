@@ -55,7 +55,9 @@ public class EventLoop {
                     ui.giveLife(state);
                     ui.printNewBoard(state);
                     System.out.println("Test");
+                    ui.clearBoard(state);
                     ui.copyNewBoard(state);
+                    
                 }
                 state.setGameState(Constants.GAME_OVER);
                 
