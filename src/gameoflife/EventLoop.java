@@ -63,8 +63,7 @@ public class EventLoop {
                     ui.clearNewBoard(state);
                 } else {
                     state.setGameState(Constants.QUIT_PROGRAM);
-                    System.out.print("\033[H\033[2J");
-                    System.out.flush();
+                    
                 }
             }
         }

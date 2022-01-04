@@ -237,6 +237,11 @@ public class UI
         System.out.println(Constants.TITLE);
     }
 
+    public void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+    
     public void printBoard(State state) {
         System.out.println(Constants.DIVIDER_STRING);
         for (int row = 0; row < Constants.BOARD_SIZE; row++) {
@@ -262,7 +267,7 @@ public class UI
             }
         }
     }
-    
+
     public void printInvalidRowOrColumn() {
         System.out.printf(Constants.INVALID_ROW_OR_COLUMN);
         System.out.println();
