@@ -24,6 +24,14 @@ public class EventLoop {
                 ui.welcomePlayer(state);
                 state.setGameState(Constants.GET_PLAYER_MOVE);
 
+            }else if (gameState == Constants.PRESET_BLOCKS){
+                state.setBoardCell(5, 5, Constants.PLAYER);
+                state.setBoardCell(6, 6, Constants.PLAYER);
+                state.setBoardCell(7, 6, Constants.PLAYER);
+                state.setBoardCell(7, 5, Constants.PLAYER);
+                state.setBoardCell(7, 4, Constants.PLAYER);
+                state.setGameState(Constants.RUN);
+                ui.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {
                 ui.printBoard(state);
                 row = ui.getMoveRow(state.getWhoseMove());

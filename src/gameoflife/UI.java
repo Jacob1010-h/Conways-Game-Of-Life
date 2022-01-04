@@ -9,10 +9,12 @@ public class UI
 {
     Scanner stopScanner;
     Scanner scanner;
+    Scanner presetScanner;
 
     public UI() {
         scanner = new Scanner(System.in);  
         stopScanner = new Scanner(System.in);
+        presetScanner = new Scanner(System.in);
     }
 
     // Utility methods
@@ -38,6 +40,18 @@ public class UI
             return true;
         }
         return false;
+    }
+
+    //Ask for preset or cont.
+    public boolean presetStart(){
+        String preset = "";
+        System.out.println(Constants.PRESET_START);
+        preset = presetScanner.next();
+        if(preset.equals("y") || preset.equals("Y")){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //New Board Functions
@@ -299,6 +313,9 @@ public class UI
     public void welcomePlayer(State state){
         System.out.println(Constants.WELCOME_TITLE);
         state.setGameState(Constants.GET_PLAYER_MOVE);
+        if(presetStart() == true){
+            state.setGameState(Constants.PRESET_BLOCKS);
+        }
     }
 
     public void printMove(State state, int row, int col) {

@@ -18,6 +18,7 @@ public class Constants
     public static final int WELCOME = 1;
     public static final int GET_PLAYER_MOVE = 2;
     public static final int CHECK_STOP = 3;
+    public static final int PRESET_BLOCKS = 4;
     public static final int MAKE_MOVE = 5;
     public static final int RUN = 6;
     public static final int GAME_OVER = 10;
@@ -32,6 +33,7 @@ public class Constants
     public static final String GET_ROW_MOVE = "Player %s: Enter the row for your next block";
     public static final String GET_COL_MOVE = "Player %s: Enter the column for your next block";
     public static final String INVALID_MOVE_ERROR = "Row %d column %d is not a valid position. Please try again";
+    public static final String PRESET_START= "Do you want a preset board? y/n";
     public static final String CHECK_STOP_STR = "Do you want to run the program? y/n";
     public static final String PRINT_MOVE = "Player %s block to %d %d";    
     public static final String START_NEW_GAME = "Start a new simulation (Y or N)? -->";
