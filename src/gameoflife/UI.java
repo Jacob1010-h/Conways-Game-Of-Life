@@ -53,6 +53,11 @@ public class UI
         return false;
     }
 
+    //! Make Board
+    public void makeBoard(){
+        //TODO make a function that makes the board
+    }
+
     //* Asks the user if they want a preset board
     public boolean presetStart(){
         String preset = "";

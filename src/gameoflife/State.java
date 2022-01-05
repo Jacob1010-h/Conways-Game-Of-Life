@@ -50,8 +50,8 @@ public class State
         return Constants.BOARD_SIZE;
     }
     
-    public void setNumHorizontalString(int col){
-        for(int i = 0; i<getBoardSize(); i++){
+    public void setNumHorizontalString(int i){
+        for(i = 0; i<getBoardSize(); i++){
             Constants.NUMBER_HORIZONTAL = "-|";
             Constants.NUMBER_HORIZONTAL = Constants.NUMBER_HORIZONTAL.concat("-" + Integer.toString(i+1) + "-|");
         }
@@ -61,8 +61,8 @@ public class State
         return Constants.NUMBER_HORIZONTAL;
     }
 
-    public void setDivideString(){
-        for(int i = 0; i<getBoardSize(); i++){
+    public void setDivideString(int i){
+        for(i = 0; i<getBoardSize(); i++){
             Constants.DIVIDER_STRING = "-|";
             Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("---|");
         }
