@@ -7,6 +7,7 @@ public class EventLoop {
     //* Instance variables for the UI and State classes
     State state = new State();
     UI ui = new UI();
+    Life life = new Life();
     int row, col;
     boolean finished = false;
 
@@ -65,7 +66,7 @@ public class EventLoop {
                 ui.createNewBoard(state);
                 for(int i = 0; i<10; i++){
                     ui.clearScreen();
-                    ui.giveLife(state);
+                    life.giveLife(state);
                     ui.printNewBoard(state);
                     ui.clearBoard(state);
                     ui.copyNewBoard(state);
