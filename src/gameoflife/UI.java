@@ -9,12 +9,12 @@ public class UI
 {
     Scanner stopScanner;
     Scanner scanner;
-    Scanner presetScanner;
+    Scanner startScanner;
 
     public UI() {
         scanner = new Scanner(System.in);  
         stopScanner = new Scanner(System.in);
-        presetScanner = new Scanner(System.in);
+        startScanner = new Scanner(System.in);
     }
 
     // Utility methods
@@ -58,7 +58,7 @@ public class UI
         String preset = "";
         while(preset.equals("")){
             System.out.println(Constants.PRESET_START);
-            preset = presetScanner.next();
+            preset = startScanner.next();
             if(preset.equals("y") || preset.equals("Y")){
                 return true;
             }else if(preset.equals("n") || preset.equals("N")){
