@@ -7,7 +7,7 @@ package gameoflife;
 public class Constants
 {
     // Valid board size
-    public static final int BOARD_SIZE = 10;
+    public static int BOARD_SIZE = 10;
 
     // Valid board values
     public static final int PLAYER = 1;     // Indicates an "O"
@@ -25,8 +25,8 @@ public class Constants
     public static final int QUIT_PROGRAM = 11;
     
     // Strings
-    public static final String NUMBER_HORIZONTAL = "-|-1-|-2-|-3-|-4-|-5-|-6-|-7-|-8-|-9-|-10-|";
-    public static final String DIVIDER_STRING = "-|---|---|---|---|---|---|---|---|---|----|";
+    public static String NUMBER_HORIZONTAL = "-|-1-|-2-|-3-|-4-|-5-|-6-|-7-|-8-|-9-|-10-|";
+    public static String DIVIDER_STRING = "-|---|---|---|---|---|---|---|---|---|----|";
     public static final String BOARD_STRING = "| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
     public static final String WELCOME_TITLE = "Welcome to The Game of Life!";
     public static final String TITLE = "Thanks for playing the Game Of Life!";
