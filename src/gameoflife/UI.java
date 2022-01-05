@@ -20,7 +20,7 @@ public class UI
     // Utility methods
     public String getXOrO(int whoseMove) {
         if(whoseMove == 1){
-            return "?";
+            return "X";
         }else{
             return " ";
         }
