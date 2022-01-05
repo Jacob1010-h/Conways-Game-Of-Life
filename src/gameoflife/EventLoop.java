@@ -30,11 +30,7 @@ public class EventLoop {
                     state.setGameState(Constants.GET_PLAYER_MOVE);
                 }
             }else if (gameState == Constants.PRESET_BLOCKS){
-                state.setBoardCell(5-1, 5-1, Constants.PLAYER);
-                state.setBoardCell(6-1, 6-1, Constants.PLAYER);
-                state.setBoardCell(7-1, 6-1, Constants.PLAYER);
-                state.setBoardCell(7-1, 5-1, Constants.PLAYER);
-                state.setBoardCell(7-1, 4-1, Constants.PLAYER);
+                ui.presetBoard(state);
                 state.setGameState(Constants.RUN);
                 ui.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {
