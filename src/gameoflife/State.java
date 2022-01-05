@@ -7,8 +7,8 @@ public class State
 {
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
-    private int[][] board = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
-    private int[][] Newboard = new int[Constants.BOARD_SIZE][Constants.BOARD_SIZE];
+    private int[][] board = new int[getBoardSize()][getBoardSize()];
+    private int[][] Newboard = new int[getBoardSize()][getBoardSize()];
 
     public int getGameState() {
         return gameState;
@@ -41,6 +41,35 @@ public class State
     public void setNewBoardCell(int row, int col, int value) {
         this.Newboard[row][col] = value;
     }
+
+    public void setBoardSize(int size){
+        Constants.BOARD_SIZE = size;
+    }
+
+    public int getBoardSize(){
+        return Constants.BOARD_SIZE;
+    }
     
+    public void setNumHorizontalString(int col){
+        for(int i = 0; i<getBoardSize(); i++){
+            Constants.NUMBER_HORIZONTAL = "-|";
+            Constants.NUMBER_HORIZONTAL = Constants.NUMBER_HORIZONTAL.concat("-" + Integer.toString(i+1) + "-|");
+        }
+    }
+
+    public String getNumHorizontalString(){
+        return Constants.NUMBER_HORIZONTAL;
+    }
+
+    public void setDivideString(){
+        for(int i = 0; i<getBoardSize(); i++){
+            Constants.DIVIDER_STRING = "-|";
+            Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("---|");
+        }
+    }
+
+    public String getDevideString(){
+        return Constants.DIVIDER_STRING;
+    }
 
 }
