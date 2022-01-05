@@ -31,7 +31,7 @@ public class EventLoop {
                     state.setGameState(Constants.GET_PLAYER_MOVE);
                 }
             }else if (gameState == Constants.PRESET_BLOCKS){
-                ui.presetBoard(state);
+                state.presetBoard();
                 state.setGameState(Constants.RUN);
                 ui.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {

@@ -72,4 +72,13 @@ public class State
         return Constants.DIVIDER_STRING;
     }
 
+    //* Presetted board
+    public void presetBoard(){
+        setBoardCell(5-1, 5-1, Constants.PLAYER);
+        setBoardCell(6-1, 6-1, Constants.PLAYER);
+        setBoardCell(7-1, 6-1, Constants.PLAYER);
+        setBoardCell(7-1, 5-1, Constants.PLAYER);
+        setBoardCell(7-1, 4-1, Constants.PLAYER);
+    }
+
 }
