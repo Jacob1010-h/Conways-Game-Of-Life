@@ -29,8 +29,8 @@ public class UI
 
     //! Checks for a leagal move
     public boolean isLegalMove(State state, int row, int col) {
-        return 1 <= row && row <= Constants.BOARD_SIZE &&
-        1 <= col && col <= Constants.BOARD_SIZE &&
+        return 1 <= row && row <= state.getBoardSize() &&
+        1 <= col && col <= state.getBoardSize() &&
         state.getBoardCell(row-1, col-1) == Constants.BLANK;
     }
 
@@ -74,8 +74,8 @@ public class UI
 
     //*New Board Functions
     public void createNewBoard(State state){
-        for(int row = 0; row < Constants.BOARD_SIZE; row++){
-            for(int col = 0; col< Constants.BOARD_SIZE; col++){
+        for(int row = 0; row < state.getBoardSize(); row++){
+            for(int col = 0; col< state.getBoardSize(); col++){
                 if(state.getBoardCell(row,col) == Constants.PLAYER){
                     state.setNewBoardCell(row, col, Constants.PLAYER);
                 }
@@ -84,16 +84,16 @@ public class UI
     }
 
     public void clearNewBoard(State state){
-        for(int row = 0; row < Constants.BOARD_SIZE; row++){
-            for(int col =0; col < Constants.BOARD_SIZE; col++){
+        for(int row = 0; row < state.getBoardSize(); row++){
+            for(int col =0; col < state.getBoardSize(); col++){
                 state.setNewBoardCell(row, col, Constants.BLANK);
             }
         }
     }
 
     public void printNewBoard(State state) {
-        System.out.println(Constants.NUMBER_HORIZONTAL);
-        for (int row = 0; row < Constants.BOARD_SIZE; row++) {
+        System.out.println(state.getNumHorizontalString());
+        for (int row = 0; row < state.getBoardSize(); row++) {
             System.out.print(row);
             System.out.printf(Constants.BOARD_STRING, getXOrO(state.getNewBoardCell(row, 0)), 
                 getXOrO(state.getNewBoardCell(row, 1)), 
@@ -106,134 +106,20 @@ public class UI
                 getXOrO(state.getNewBoardCell(row, 8)),
                 getXOrO(state.getNewBoardCell(row, 9)));
             System.out.println();
-            System.out.println(Constants.DIVIDER_STRING);
+            System.out.println(state.getDevideString());
         }
     }
 
     //* Copy new board to board
     public void copyNewBoard(State state){
-        for(int row = 0; row < Constants.BOARD_SIZE; row++){
-            for(int col = 0; col < Constants.BOARD_SIZE; col++){
+        for(int row = 0; row < state.getBoardSize(); row++){
+            for(int col = 0; col < state.getBoardSize(); col++){
                 if(state.getNewBoardCell(row,col) == Constants.PLAYER){
                     state.setBoardCell(row, col, Constants.PLAYER);
                 }
             }
         }
     }
-
-    //*Life functions
-    public void giveLife(State state){
-        //* Loops Code until board is scanned
-        for(int row = 1; row < Constants.BOARD_SIZE-1; row++){
-            for(int col = 1; col< Constants.BOARD_SIZE-1; col++){
-                //! Check living cells & set values
-                //* Sets value to new board
-                if(checkCellLife(row, col, state) == false){
-                    state.setNewBoardCell(row, col, Constants.BLANK);
-                }else if(checkCellLife(row, col, state) == true){
-                    state.setNewBoardCell(row, col, Constants.PLAYER);
-                }
-                //!Check dead cells & set values
-                //* Sets value to new board
-                if(checkCellLifeDeath(row, col, state) == false){
-                    if(state.getBoardCell(row, col) == Constants.PLAYER){
-                        
-                    }else{
-                        state.setNewBoardCell(row, col, Constants.BLANK);
-                    }
-                }else{
-                    state.setNewBoardCell(row, col, Constants.PLAYER);
-                }
-            }
-        }
-    }
-    
-    //! Check if the living inputted cell returns life
-    public boolean checkCellLife(int row, int col, State state){
-        int life = 0;
-        if(state.getBoardCell(row, col) == Constants.PLAYER){
-            //Bottom Right
-            if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
-                life++;
-            }
-            //Bottom
-            if(state.getBoardCell(row+1,col) == Constants.PLAYER){
-                life++;
-            }
-            //Bottom Left
-            if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Left Mid
-            if(state.getBoardCell(row, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Top Left
-            if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //Top
-            if(state.getBoardCell(row-1, col) == Constants.PLAYER){
-                life++;
-            }
-            //Top Right
-            if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
-                life++;
-            }
-            //Right
-            if(state.getBoardCell(row, col+1) == Constants.PLAYER){
-                life++;
-            }
-            
-            //Life Returns
-            if(life == 2 || life == 3)return true;
-        }
-        return false;
-    }
-
-    //! Check if the dead inputted cell returns life
-    public boolean checkCellLifeDeath(int row, int col, State state){
-        int life = 0;
-        if(state.getBoardCell(row, col) == Constants.BLANK){
-            //*Bottom Right
-            if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
-                life++;
-            }
-            //*Bottom
-            if(state.getBoardCell(row+1,col) == Constants.PLAYER){
-                life++;
-            }
-            //*Bottom Left
-            if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //*Left Mid
-            if(state.getBoardCell(row, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //*Top Left
-            if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
-                life++;
-            }
-            //*Top
-            if(state.getBoardCell(row-1, col) == Constants.PLAYER){
-                life++;
-            }
-            //*Top Right
-            if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
-                life++;
-            }
-            //*Right
-            if(state.getBoardCell(row, col+1) == Constants.PLAYER){
-                life++;
-            }
-            
-            //*Life Returns
-            if(life == 3)return true;
-        }
-        return false;
-    }
-
 
     //* Presetted board
     public void presetBoard(State state){
@@ -317,8 +203,8 @@ public class UI
     }
     
     public void printBoard(State state) {
-        System.out.println(Constants.NUMBER_HORIZONTAL);
-        for (int row = 0; row < Constants.BOARD_SIZE; row++) {
+        System.out.println(state.getNumHorizontalString());
+        for (int row = 0; row < state.getBoardSize(); row++) {
             System.out.print(row);
             System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), 
                 getXOrO(state.getBoardCell(row, 1)), 
@@ -331,13 +217,13 @@ public class UI
                 getXOrO(state.getBoardCell(row, 8)),
                 getXOrO(state.getBoardCell(row, 9)));
             System.out.println();
-            System.out.println(Constants.DIVIDER_STRING);
+            System.out.println(state.getDevideString());
         }
     }
 
     public void clearBoard(State state){
-        for(int row = 0; row < Constants.BOARD_SIZE; row++){
-            for(int col =0; col < Constants.BOARD_SIZE; col++){
+        for(int row = 0; row < state.getBoardSize(); row++){
+            for(int col =0; col < state.getBoardSize(); col++){
                 state.setBoardCell(row, col, Constants.BLANK);
             }
         }
