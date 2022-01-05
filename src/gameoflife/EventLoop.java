@@ -1,7 +1,10 @@
 package gameoflife;
 
 public class EventLoop {
-
+    //TODO Number Grid
+    //TODO Make grid bigger
+    //TODO OR Let the user pick the size of the grid.
+    
     // Instance variables for the UI and State classes
     State state = new State();
     UI ui = new UI();
