@@ -72,7 +72,7 @@ public class UI
         return false;
     }
 
-    //New Board Functions
+    //*New Board Functions
     public void createNewBoard(State state){
         for(int row = 0; row < Constants.BOARD_SIZE; row++){
             for(int col = 0; col< Constants.BOARD_SIZE; col++){
@@ -110,7 +110,7 @@ public class UI
         }
     }
 
-    //Copy New Board
+    //* Copy new board to board
     public void copyNewBoard(State state){
         for(int row = 0; row < Constants.BOARD_SIZE; row++){
             for(int col = 0; col < Constants.BOARD_SIZE; col++){
@@ -121,16 +121,20 @@ public class UI
         }
     }
 
-    //Life functions
+    //*Life functions
     public void giveLife(State state){
+        //* Loops Code until board is scanned
         for(int row = 1; row < Constants.BOARD_SIZE-1; row++){
             for(int col = 1; col< Constants.BOARD_SIZE-1; col++){
-                //if(state.getBoardCell(row, col) == Constants.PLAYER){
+                //! Check living cells & set values
+                //* Sets value to new board
                 if(checkCellLife(row, col, state) == false){
                     state.setNewBoardCell(row, col, Constants.BLANK);
                 }else if(checkCellLife(row, col, state) == true){
                     state.setNewBoardCell(row, col, Constants.PLAYER);
                 }
+                //!Check dead cells & set values
+                //* Sets value to new board
                 if(checkCellLifeDeath(row, col, state) == false){
                     if(state.getBoardCell(row, col) == Constants.PLAYER){
                         
@@ -140,11 +144,11 @@ public class UI
                 }else{
                     state.setNewBoardCell(row, col, Constants.PLAYER);
                 }
-                //}
             }
         }
     }
     
+    //! Check if the living inputted cell returns life
     public boolean checkCellLife(int row, int col, State state){
         int life = 0;
         if(state.getBoardCell(row, col) == Constants.PLAYER){
@@ -187,50 +191,51 @@ public class UI
         return false;
     }
 
+    //! Check if the dead inputted cell returns life
     public boolean checkCellLifeDeath(int row, int col, State state){
         int life = 0;
         if(state.getBoardCell(row, col) == Constants.BLANK){
-            //Bottom Right
+            //*Bottom Right
             if(state.getBoardCell(row+1,col+1) == Constants.PLAYER){
                 life++;
             }
-            //Bottom
+            //*Bottom
             if(state.getBoardCell(row+1,col) == Constants.PLAYER){
                 life++;
             }
-            //Bottom Left
+            //*Bottom Left
             if(state.getBoardCell(row+1, col-1) == Constants.PLAYER){
                 life++;
             }
-            //Left Mid
+            //*Left Mid
             if(state.getBoardCell(row, col-1) == Constants.PLAYER){
                 life++;
             }
-            //Top Left
+            //*Top Left
             if(state.getBoardCell(row-1, col-1) == Constants.PLAYER){
                 life++;
             }
-            //Top
+            //*Top
             if(state.getBoardCell(row-1, col) == Constants.PLAYER){
                 life++;
             }
-            //Top Right
+            //*Top Right
             if(state.getBoardCell(row-1, col+1) == Constants.PLAYER){
                 life++;
             }
-            //Right
+            //*Right
             if(state.getBoardCell(row, col+1) == Constants.PLAYER){
                 life++;
             }
             
-            //Life Returns
+            //*Life Returns
             if(life == 3)return true;
         }
         return false;
     }
 
 
-    //MISC
+    //* Presetted board
     public void presetBoard(State state){
         state.setBoardCell(5-1, 5-1, Constants.PLAYER);
         state.setBoardCell(6-1, 6-1, Constants.PLAYER);
@@ -239,18 +244,24 @@ public class UI
         state.setBoardCell(7-1, 4-1, Constants.PLAYER);
     }
 
+    //*Get the row
     public int getMoveRow(int whoseMove) {
         int row = 0;
+        //* Loops code
+        //!Checks if value is too high or low
         while (row <= 0 || row >= 11) {
+            //! If value is <11
             if(row < 11){
                 try {
                     System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove));
                     row = scanner.nextInt();
                 } catch (Exception e) {
+                    //! ERROR: If the value isnt an int
                     System.out.println(Constants.INVALID_ROW_OR_COLUMN);
                     scanner.next();
                 }
             }else{
+                //! If value is >= 11
                 printInvalidRowOrColumn();
                 System.out.println();
                 row = 0;
@@ -261,7 +272,10 @@ public class UI
 
     public int getMoveCol(int whoseMove) {
         int col = 0;
+        //* Loops code
+        //!Checks if value is too high or low
         while (col <= 0 || col >= 11) {
+            //! If value is <11
             if (col < 11){
                 try {
                     System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove));
@@ -271,6 +285,7 @@ public class UI
                     scanner.next();
                 }
             }else{
+                //! ERROR: If the value isnt an int
                 printInvalidRowOrColumn();
                 System.out.println();
                 col = 0;
