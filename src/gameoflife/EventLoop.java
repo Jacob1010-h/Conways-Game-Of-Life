@@ -1,7 +1,6 @@
 package gameoflife;
 
 public class EventLoop {
-    //TODO Number Grid
     //TODO Make grid bigger
     //TODO OR Let the user pick the size of the grid.
     
