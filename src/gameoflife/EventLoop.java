@@ -22,14 +22,17 @@ public class EventLoop {
             }else if (gameState == Constants.WELCOME){
                 ui.clearScreen();
                 ui.welcomePlayer(state);
-                state.setGameState(Constants.GET_PLAYER_MOVE);
-
+                if(ui.presetStart() == true){
+                    state.setGameState(Constants.PRESET_BLOCKS);
+                }else{
+                    state.setGameState(Constants.GET_PLAYER_MOVE);
+                }
             }else if (gameState == Constants.PRESET_BLOCKS){
-                state.setBoardCell(5, 5, Constants.PLAYER);
-                state.setBoardCell(6, 6, Constants.PLAYER);
-                state.setBoardCell(7, 6, Constants.PLAYER);
-                state.setBoardCell(7, 5, Constants.PLAYER);
-                state.setBoardCell(7, 4, Constants.PLAYER);
+                state.setBoardCell(5-1, 5-1, Constants.PLAYER);
+                state.setBoardCell(6-1, 6-1, Constants.PLAYER);
+                state.setBoardCell(7-1, 6-1, Constants.PLAYER);
+                state.setBoardCell(7-1, 5-1, Constants.PLAYER);
+                state.setBoardCell(7-1, 4-1, Constants.PLAYER);
                 state.setGameState(Constants.RUN);
                 ui.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {

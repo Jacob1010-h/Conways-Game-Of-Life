@@ -313,9 +313,6 @@ public class UI
     public void welcomePlayer(State state){
         System.out.println(Constants.WELCOME_TITLE);
         state.setGameState(Constants.GET_PLAYER_MOVE);
-        if(presetStart() == true){
-            state.setGameState(Constants.PRESET_BLOCKS);
-        }
     }
 
     public void printMove(State state, int row, int col) {
