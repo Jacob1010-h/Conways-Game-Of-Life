@@ -18,6 +18,7 @@ public class UI
     }
 
     // Utility methods
+    //* Returns a string of what goes in the board
     public String getXOrO(int whoseMove) {
         if(whoseMove == 1){
             return "X";
@@ -26,32 +27,49 @@ public class UI
         }
     }
 
+    //! Checks for a leagal move
     public boolean isLegalMove(State state, int row, int col) {
         return 1 <= row && row <= Constants.BOARD_SIZE &&
         1 <= col && col <= Constants.BOARD_SIZE &&
         state.getBoardCell(row-1, col-1) == Constants.BLANK;
     }
 
+    //* Asks if the user is finished
     public boolean getFinished(int whoseMove){
         String finished = "";
-        System.out.println(Constants.CHECK_STOP_STR);
-        finished = stopScanner.next();
-        if(finished.equals("y") || finished.equals("Y")){
-            return true;
+        while(finished.equals("")){
+            System.out.println(Constants.CHECK_STOP_STR);
+            finished = stopScanner.next();
+            if(finished.equals("y") || finished.equals("Y")){
+                return true;
+            }else if(finished.equals("n") || finished.equals("N")){
+                return false;
+            }else{
+                System.out.println("Invalid input");
+                finished = "";
+                //! ERROR finished doesnt equal y or n
+            }
         }
         return false;
     }
 
-    //Ask for preset or cont.
+    //* Asks the user if they want a preset board
     public boolean presetStart(){
         String preset = "";
-        System.out.println(Constants.PRESET_START);
-        preset = presetScanner.next();
-        if(preset.equals("y") || preset.equals("Y")){
-            return true;
-        }else{
-            return false;
+        while(preset.equals("")){
+            System.out.println(Constants.PRESET_START);
+            preset = presetScanner.next();
+            if(preset.equals("y") || preset.equals("Y")){
+                return true;
+            }else if(preset.equals("n") || preset.equals("N")){
+                return false;
+            }else{
+                System.out.println("Invalid input");
+                preset = "";
+                //! ERROR: preset doesnt equal y or n
+            }
         }
+        return false;
     }
 
     //New Board Functions
