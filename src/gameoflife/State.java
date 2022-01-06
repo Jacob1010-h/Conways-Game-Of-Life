@@ -51,8 +51,8 @@ public class State
     }
     
     public void setNumHorizontalString(){
+        Constants.NUMBER_HORIZONTAL = "-|";
         for(int i = 0; i<getBoardSize(); i++){
-            Constants.NUMBER_HORIZONTAL = "-|";
             Constants.NUMBER_HORIZONTAL = Constants.NUMBER_HORIZONTAL.concat("-" + Integer.toString(i+1) + "-|");
         }
     }
@@ -62,9 +62,13 @@ public class State
     }
 
     public void setDivideString(){
+        Constants.DIVIDER_STRING = "-|";
         for(int i = 0; i<getBoardSize(); i++){
-            Constants.DIVIDER_STRING = "-|";
-            Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("---|");
+            if(i >= getBoardSize()-1){
+                Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("----|");
+            }else{
+                Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("---|");
+            }
         }
     }
 
