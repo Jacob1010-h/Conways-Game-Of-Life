@@ -54,15 +54,15 @@ public class UI
     }
 
     //! Make Board
-    public void makeBoard(){
-        int i = 0;
-        while(i == 0){
+    public void makeBoard(State state){
+        int size = 0;
+        while(size == 0){
             try {
                 System.out.println("Input grid size from 10-20");
-                i = startScanner.nextInt();
-                if(i >20 && i<10){
+                size = startScanner.nextInt();
+                if(size >20 && size<10){
                     System.out.println("Invalid input");
-                    i = 0;
+                    size = 0;
                 }else{
                     
                 }
@@ -70,9 +70,9 @@ public class UI
                 //TODO: handle exception
             }
         }
-
-
-        
+        state.setBoardSize(size);
+        state.setDivideString();
+        state.setNumHorizontalString();
     }
 
     //* Asks the user if they want a preset board
