@@ -55,7 +55,24 @@ public class UI
 
     //! Make Board
     public void makeBoard(){
-        //TODO make a function that makes the board
+        int i = 0;
+        while(i == 0){
+            try {
+                System.out.println("Input grid size from 10-20");
+                i = startScanner.nextInt();
+                if(i >20 && i<10){
+                    System.out.println("Invalid input");
+                    i = 0;
+                }else{
+                    
+                }
+            } catch (Exception e) {
+                //TODO: handle exception
+            }
+        }
+
+
+        
     }
 
     //* Asks the user if they want a preset board
