@@ -26,11 +26,11 @@ public class EventLoop {
                 ui.clearScreen();
                 ui.welcomePlayer(state);
                 ui.makeBoard(state);
-                /* if(ui.presetStart() == true){
+                if(ui.presetStart() == true){
                     state.setGameState(Constants.PRESET_BLOCKS);
                 }else{
                     state.setGameState(Constants.GET_PLAYER_MOVE);
-                } */
+                }
             }else if (gameState == Constants.PRESET_BLOCKS){
                 state.presetBoard();
                 state.setGameState(Constants.RUN);
