@@ -7,7 +7,7 @@ package gameoflife;
 public class Constants
 {
     // Valid board size
-    public static int BOARD_SIZE = 10;
+    public static int BOARD_SIZE = 10; //? This is still setting the board size
 
     // Valid board values
     public static final int PLAYER = 1;     // Indicates an "O"
