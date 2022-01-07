@@ -8,6 +8,7 @@ public class EventLoop {
     State state = new State();
     UI ui = new UI();
     Life life = new Life();
+    PrintBoard print = new PrintBoard();
     int row, col;
     boolean finished = false;
 
@@ -34,9 +35,9 @@ public class EventLoop {
             }else if (gameState == Constants.PRESET_BLOCKS){
                 state.presetBoard();
                 state.setGameState(Constants.RUN);
-                ui.printBoard(state);
+                print.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {
-                ui.printBoard(state);
+                print.printBoard(state);
                 row = ui.getMoveRow(state.getWhoseMove());
                 col = ui.getMoveCol(state.getWhoseMove());
                 if (ui.isLegalMove(state, row, col)) {
@@ -56,7 +57,7 @@ public class EventLoop {
                 ui.clearScreen();
                 state.setGameState(Constants.CHECK_STOP);
             }else if (gameState == Constants.CHECK_STOP){
-                ui.printBoard(state);
+                print.printBoard(state);
                 if(ui.getFinished(state.getWhoseMove()) == true){
                     state.setGameState(Constants.RUN);
                 }else{
@@ -68,7 +69,7 @@ public class EventLoop {
                 for(int i = 0; i<10; i++){
                     ui.clearScreen();
                     life.giveLife(state);
-                    ui.printNewBoard(state);
+                    print.printNewBoard(state);
                     ui.clearBoard(state);
                     ui.copyNewBoard(state);
                     System.out.println("Iteration " + (i+1));

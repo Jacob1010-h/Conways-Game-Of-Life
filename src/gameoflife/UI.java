@@ -113,25 +113,6 @@ public class UI
         }
     }
 
-    public void printNewBoard(State state) {
-        System.out.println(state.getNumHorizontalString());
-        for (int row = 0; row < state.getBoardSize(); row++) {
-            System.out.print(row);
-            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getNewBoardCell(row, 0)), 
-                getXOrO(state.getNewBoardCell(row, 1)), 
-                getXOrO(state.getNewBoardCell(row, 2)),
-                getXOrO(state.getNewBoardCell(row, 3)),
-                getXOrO(state.getNewBoardCell(row, 4)),
-                getXOrO(state.getNewBoardCell(row, 5)),
-                getXOrO(state.getNewBoardCell(row, 6)),
-                getXOrO(state.getNewBoardCell(row, 7)),
-                getXOrO(state.getNewBoardCell(row, 8)),
-                getXOrO(state.getNewBoardCell(row, 9)));
-            System.out.println();
-            System.out.println(state.getDevideString());
-        }
-    }
-
     //* Copy new board to board
     public void copyNewBoard(State state){
         for(int row = 0; row < state.getBoardSize(); row++){
@@ -215,25 +196,6 @@ public class UI
         } catch (IOException | InterruptedException ex) {}
     }
     
-    public void printBoard(State state) {
-        System.out.println(state.getNumHorizontalString());
-        for (int row = 0; row < state.getBoardSize(); row++) {
-            System.out.print(row);
-            System.out.printf(Constants.BOARD_STRING, getXOrO(state.getBoardCell(row, 0)), 
-                getXOrO(state.getBoardCell(row, 1)), 
-                getXOrO(state.getBoardCell(row, 2)),
-                getXOrO(state.getBoardCell(row, 3)),
-                getXOrO(state.getBoardCell(row, 4)),
-                getXOrO(state.getBoardCell(row, 5)),
-                getXOrO(state.getBoardCell(row, 6)),
-                getXOrO(state.getBoardCell(row, 7)),
-                getXOrO(state.getBoardCell(row, 8)),
-                getXOrO(state.getBoardCell(row, 9)));
-            System.out.println();
-            System.out.println(state.getDevideString());
-        }
-    }
-
     public void clearBoard(State state){
         for(int row = 0; row < state.getBoardSize(); row++){
             for(int col =0; col < state.getBoardSize(); col++){

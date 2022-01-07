@@ -64,7 +64,7 @@ public class State
     public void setDivideString(){
         Constants.DIVIDER_STRING = "-|";
         for(int i = 0; i<getBoardSize(); i++){
-            if(i >= getBoardSize()-1){
+            if(i >= 9){
                 Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("----|");
             }else{
                 Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("---|");
@@ -74,6 +74,21 @@ public class State
 
     public String getDevideString(){
         return Constants.DIVIDER_STRING;
+    }
+
+    public void setBoardSring(){
+        Constants.BOARD_STRING = "|";
+        for(int i = 0; i<getBoardSize(); i++){
+            if(i >= 9){
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  ");
+            }else{
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s ");
+            }
+        }
+    }
+
+    public String getBoardString(){
+        return Constants.BOARD_STRING;
     }
 
     //* Presetted board
