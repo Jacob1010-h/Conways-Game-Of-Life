@@ -63,6 +63,7 @@ public class UI
                     size = startScanner.nextInt(); 
                     state.setBoardSize(size);
                     state.setDivideString();
+                    state.setBoardSring();
                     state.setNumHorizontalString();
                 } catch (Exception e) {
                     System.out.println("Invalid Input");
