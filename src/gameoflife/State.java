@@ -77,13 +77,28 @@ public class State
         return Constants.DIVIDER_STRING;
     }
 
+    public void setBoardSring10(){
+        Constants.BOARD_STRING10 = "|";
+        for(int i = 0; i<getBoardSize(); i++){
+            if(i >= 9){
+                Constants.BOARD_STRING10 = Constants.BOARD_STRING10.concat(" %s  |");
+            }else{
+                Constants.BOARD_STRING10 = Constants.BOARD_STRING10.concat(" %s |");
+            }
+        }
+    }
+
+    public String getBoardString10(){
+        return Constants.BOARD_STRING10;
+    }
+
     public void setBoardSring(){
         Constants.BOARD_STRING = " |";
         for(int i = 0; i<getBoardSize(); i++){
             if(i >= 9){
-                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  ");
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  |");
             }else{
-                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s ");
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s |");
             }
         }
     }
