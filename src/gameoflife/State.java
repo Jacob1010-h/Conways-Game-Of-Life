@@ -7,7 +7,7 @@ public class State
 {
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
-    private int board[][];
+    private int board[][]; //! Doesn't set size now to overwrite other code
     private int[][] Newboard = new int[getBoardSize()][getBoardSize()];
 
     public int getGameState() {
