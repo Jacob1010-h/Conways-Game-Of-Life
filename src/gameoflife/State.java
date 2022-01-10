@@ -7,7 +7,7 @@ public class State
 {
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
-    private int[][] board = new int[getBoardSize()][getBoardSize()];
+    private int board[][];
     private int[][] Newboard = new int[getBoardSize()][getBoardSize()];
 
     public int getGameState() {
@@ -44,6 +44,7 @@ public class State
 
     public void setBoardSize(int size){
         Constants.BOARD_SIZE = size;
+        board = new int[size][size];;
     }
 
     public int getBoardSize(){
@@ -51,7 +52,7 @@ public class State
     }
     
     public void setNumHorizontalString(){
-        Constants.NUMBER_HORIZONTAL = "-|";
+        Constants.NUMBER_HORIZONTAL = "--|";
         for(int i = 0; i<getBoardSize(); i++){
             Constants.NUMBER_HORIZONTAL = Constants.NUMBER_HORIZONTAL.concat("-" + Integer.toString(i+1) + "-|");
         }
@@ -62,7 +63,7 @@ public class State
     }
 
     public void setDivideString(){
-        Constants.DIVIDER_STRING = "-|";
+        Constants.DIVIDER_STRING = "--|";
         for(int i = 0; i<getBoardSize(); i++){
             if(i >= 9){
                 Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("----|");
@@ -77,7 +78,7 @@ public class State
     }
 
     public void setBoardSring(){
-        Constants.BOARD_STRING = "|";
+        Constants.BOARD_STRING = " |";
         for(int i = 0; i<getBoardSize(); i++){
             if(i >= 9){
                 Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  ");
