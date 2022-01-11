@@ -2,7 +2,7 @@ package gameoflife;
 
 public class PrintBoard {
     UI ui = new UI();
-
+    //? Is there an easier way to do this?
     //*New Board
     public void printNewBoard(State state) {
         System.out.println(state.getNumHorizontalString());
