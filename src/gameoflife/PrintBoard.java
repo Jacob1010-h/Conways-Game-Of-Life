@@ -40,7 +40,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 11){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -73,7 +73,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 12){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -108,7 +108,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 13){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -145,7 +145,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 14){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -184,7 +184,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 15){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -225,7 +225,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 16){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -268,7 +268,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 17){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -313,7 +313,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 18){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -360,7 +360,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 19){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
@@ -409,7 +409,7 @@ public class PrintBoard {
         if(state.getBoardSize() == 20){
             for (int row = 0; row < state.getBoardSize(); row++) {
                 System.out.print(row + 1);
-                if(row == 10){
+                if(row >= 9){
                     System.out.printf(state.getBoardString10(), ui.getXOrO(state.getNewBoardCell(row, 0)), 
                     ui.getXOrO(state.getNewBoardCell(row, 1)), 
                     ui.getXOrO(state.getNewBoardCell(row, 2)),
