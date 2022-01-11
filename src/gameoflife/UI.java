@@ -62,6 +62,7 @@ public class UI
                 try{
                     size = startScanner.nextInt(); 
                     state.setBoardSize(size);
+                    state.setNewBoardSize();
                     state.setDivideString();
                     state.setBoardSring();
                     state.setBoardSring10();
