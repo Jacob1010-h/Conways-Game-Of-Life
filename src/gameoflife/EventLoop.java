@@ -38,8 +38,8 @@ public class EventLoop {
                 print.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {
                 print.printBoard(state);
-                row = ui.getMoveRow(state.getWhoseMove());
-                col = ui.getMoveCol(state.getWhoseMove());
+                row = ui.getMoveRow(state.getWhoseMove(), state);
+                col = ui.getMoveCol(state.getWhoseMove(), state);
                 if (ui.isLegalMove(state, row, col)) {
                     state.setGameState(Constants.MAKE_MOVE);
                 }else{

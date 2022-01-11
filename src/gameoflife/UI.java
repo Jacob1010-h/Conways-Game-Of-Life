@@ -29,8 +29,8 @@ public class UI
 
     //! Checks for a leagal move
     public boolean isLegalMove(State state, int row, int col) {
-        return 1 <= row && row <= state.getBoardSize() &&
-        1 <= col && col <= state.getBoardSize() &&
+        return 2 <= row && row <= state.getBoardSize() &&
+        2 <= col && col <= state.getBoardSize() &&
         state.getBoardCell(row-1, col-1) == Constants.BLANK;
     }
 
@@ -127,13 +127,12 @@ public class UI
     }
 
     //*Get the row
-    public int getMoveRow(int whoseMove) {
-        int row = 0;
+    public int getMoveRow(int whoseMove, State state) {
+        int row = 1;
         //* Loops code
         //!Checks if value is too high or low
-        while (row <= 0 || row >= 11) {
-            //! If value is <11
-            if(row < 11){
+        while (row <= 1 || row >= state.getBoardSize()) {
+            if(row < state.getBoardSize()){
                 try {
                     System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove));
                     row = scanner.nextInt();
@@ -143,22 +142,21 @@ public class UI
                     scanner.next();
                 }
             }else{
-                //! If value is >= 11
                 printInvalidRowOrColumn();
                 System.out.println();
-                row = 0;
+                row = 1;
             }
         }
         return row;
     } 
 
-    public int getMoveCol(int whoseMove) {
-        int col = 0;
+    public int getMoveCol(int whoseMove, State state) {
+        int col = 1;
         //* Loops code
         //!Checks if value is too high or low
-        while (col <= 0 || col >= 11) {
+        while (col <= 1 || col >= state.getBoardSize()) {
             //! If value is <11
-            if (col < 11){
+            if (col < state.getBoardSize()){
                 try {
                     System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove));
                     col = scanner.nextInt();
@@ -170,7 +168,7 @@ public class UI
                 //! ERROR: If the value isnt an int
                 printInvalidRowOrColumn();
                 System.out.println();
-                col = 0;
+                col = 1;
             }
         }
         return col;

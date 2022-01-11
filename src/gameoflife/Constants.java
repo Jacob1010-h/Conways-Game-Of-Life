@@ -31,7 +31,7 @@ public class Constants
     public static String BOARD_STRING10 = "| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
     public static final String WELCOME_TITLE = "Welcome to The Game of Life!";
     public static final String TITLE = "Thanks for playing the Game Of Life!";
-    public static final String INVALID_ROW_OR_COLUMN = "Your row and column must be 1, 2, or 3";
+    public static final String INVALID_ROW_OR_COLUMN = "Your row and column must be a number one layer inside of the board size";
     public static final String GET_ROW_MOVE = "Player %s: Enter the row for your next block";
     public static final String GET_COL_MOVE = "Player %s: Enter the column for your next block";
     public static final String INVALID_MOVE_ERROR = "Row %d column %d is not a valid position. Please try again";
