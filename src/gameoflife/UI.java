@@ -136,6 +136,11 @@ public class UI
                 try {
                     System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove));
                     row = scanner.nextInt();
+                    if(row == 1){
+                        printInvalidRowOrColumn();
+                        System.out.println();
+                        row = 1;
+                    }
                 } catch (Exception e) {
                     //! ERROR: If the value isnt an int
                     System.out.println(Constants.INVALID_ROW_OR_COLUMN);
@@ -160,6 +165,11 @@ public class UI
                 try {
                     System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove));
                     col = scanner.nextInt();
+                    if(col == 1){
+                        printInvalidRowOrColumn();
+                        System.out.println();
+                        col = 1;
+                    }
                 } catch (Exception e) {
                     System.out.println(Constants.INVALID_ROW_OR_COLUMN);
                     scanner.next();
