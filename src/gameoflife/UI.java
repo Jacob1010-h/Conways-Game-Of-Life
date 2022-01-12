@@ -246,7 +246,7 @@ public class UI
 
     public void notPlayed(){
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1500);
             System.out.print(Constants.WELCOME_EXPLANATION_1);
             Thread.sleep(4000);
             System.out.println(Constants.WELCOME_EXPLANATION_2);
