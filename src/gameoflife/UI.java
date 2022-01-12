@@ -225,8 +225,50 @@ public class UI
         System.out.println();
     }
 
+    public boolean playedOrNo(){
+
+        String played = "";
+        while(played.equals("")){
+            System.out.println(Constants.PLAYED_OR_NO);
+            played = startScanner.next();
+            if(played.equals("y") || played.equals("Y")){
+                return true;
+            }else if(played.equals("n") || played.equals("N")){
+                return false;
+            }else{
+                System.out.println("Invalid input");
+                played = "";
+                //! ERROR: preset doesnt equal y or n
+            }
+        }
+        return false;
+    }
+
+    public void notPlayed(){
+        try {
+            Thread.sleep(3000);
+            System.out.print(Constants.WELCOME_EXPLANATION_1);
+            Thread.sleep(4000);
+            System.out.println(Constants.WELCOME_EXPLANATION_2);
+            Thread.sleep(2000);
+            System.out.println(Constants.WELCOME_EXPLANATION_3);
+            Thread.sleep(6000);
+            System.out.println(Constants.WELCOME_EXPLANATION_4);
+            Thread.sleep(6000);
+            System.out.println(Constants.WELCOME_EXPLANATION_5);
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        clearScreen();
+    }
+
     public void welcomePlayer(State state){
         System.out.println(Constants.WELCOME_TITLE);
+        if(playedOrNo() == false){
+            notPlayed();
+        }
         state.setGameState(Constants.GET_PLAYER_MOVE);
     }
 

@@ -29,6 +29,14 @@ public class Constants
     public static String DIVIDER_STRING = "--|---|---|---|---|---|---|---|---|---|----|";
     public static String BOARD_STRING = " | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
     public static String BOARD_STRING10 = "| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
+
+    public static final String PLAYED_OR_NO = "Have you played before?";
+    public static final String WELCOME_EXPLANATION_1 = "The Game of Life is not your typical computer game.";
+    public static final String WELCOME_EXPLANATION_2 = "It is cellular automaton.\n";
+    public static final String WELCOME_EXPLANATION_3 = "This game became widely known when it was mentioned in an article published by Scientific American in 1970.\n";
+    public static final String WELCOME_EXPLANATION_4 = "It consists of a grid of cells which, based on a few mathematical rules, can live, die or multiply.\n";
+    public static final String WELCOME_EXPLANATION_5 = "Depending on the initial conditions, the cells form various patterns throughout the course of the game.\n";
+
     public static final String WELCOME_TITLE = "Welcome to The Game of Life!";
     public static final String TITLE = "Thanks for playing the Game Of Life!";
     public static final String INVALID_ROW_OR_COLUMN = "Your row and column must be a number one layer inside of the board size";
