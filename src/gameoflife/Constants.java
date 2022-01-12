@@ -31,11 +31,20 @@ public class Constants
     public static String BOARD_STRING10 = "| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
 
     public static final String PLAYED_OR_NO = "Have you played before?";
-    public static final String WELCOME_EXPLANATION_1 = "The Game of Life is not your typical computer game.";
+    public static final String WELCOME_EXPLANATION_1 = "The Game of Life is not your typical computer game. ";
     public static final String WELCOME_EXPLANATION_2 = "It is cellular automaton.\n";
     public static final String WELCOME_EXPLANATION_3 = "This game became widely known when it was mentioned in an article published by Scientific American in 1970.\n";
     public static final String WELCOME_EXPLANATION_4 = "It consists of a grid of cells which, based on a few mathematical rules, can live, die or multiply.\n";
     public static final String WELCOME_EXPLANATION_5 = "Depending on the initial conditions, the cells form various patterns throughout the course of the game.\n";
+
+    public static final String WELCOME_RULES_1 = "Rules:\n";
+    public static final String WELCOME_RULES_POP = "For a space that is populated:\n";
+    public static final String WELCOME_RULES_POP_1 = "Each cell with one or no neighbors dies, as if by solitude.\n";
+    public static final String WELCOME_RULES_POP_2 = "Each cell with four or more neighbors dies, as if by overpopulation.\n";
+    public static final String WELCOME_RULES_POP_3 = "Each cell with two or three neighbors survives.\n";
+    public static final String WELCOME_RULES_NONPOP = "For a space that is empty or unpopulated:\n";
+    public static final String WELCOME_RULES_NONPOP_1 = "Each cell with three neighbors becomes populated.\n";
+    
 
     public static final String WELCOME_TITLE = "Welcome to The Game of Life!";
     public static final String TITLE = "Thanks for playing the Game Of Life!";

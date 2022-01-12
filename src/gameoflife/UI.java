@@ -246,7 +246,8 @@ public class UI
 
     public void notPlayed(){
         try {
-            Thread.sleep(1500);
+            Thread.sleep(2000);
+            clearScreen();
             System.out.print(Constants.WELCOME_EXPLANATION_1);
             Thread.sleep(4000);
             System.out.println(Constants.WELCOME_EXPLANATION_2);
@@ -262,6 +263,25 @@ public class UI
             e.printStackTrace();
         }
         clearScreen();
+        try {
+            System.out.println(Constants.WELCOME_RULES_1);
+            Thread.sleep(1500);
+            System.out.print(Constants.WELCOME_RULES_POP);
+            Thread.sleep(3000);
+            System.out.println(Constants.WELCOME_RULES_POP_1);
+            Thread.sleep(5000);
+            System.out.println(Constants.WELCOME_RULES_POP_2);
+            Thread.sleep(5000);
+            System.out.println(Constants.WELCOME_RULES_POP_3);
+            Thread.sleep(5000);
+            System.out.print(Constants.WELCOME_RULES_NONPOP);
+            Thread.sleep(3000);
+            System.out.println(Constants.WELCOME_RULES_NONPOP_1);
+            Thread.sleep(6000);
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+        }
     }
 
     public void welcomePlayer(State state){
