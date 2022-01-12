@@ -7,8 +7,8 @@ public class State
 {
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
-    private int[][] board = new int[getBoardSize()][getBoardSize()];
-    private int[][] Newboard = new int[getBoardSize()][getBoardSize()];
+    private int board[][]; //! Doesn't set size now to overwrite other code
+    private int Newboard[][]; //! Doesn't set size now to overwrite other code
 
     public int getGameState() {
         return gameState;
@@ -44,6 +44,11 @@ public class State
 
     public void setBoardSize(int size){
         Constants.BOARD_SIZE = size;
+        board = new int[size][size];
+    }
+
+    public void setNewBoardSize(){
+        Newboard = new int[getBoardSize()][getBoardSize()];
     }
 
     public int getBoardSize(){
@@ -51,7 +56,7 @@ public class State
     }
     
     public void setNumHorizontalString(){
-        Constants.NUMBER_HORIZONTAL = "-|";
+        Constants.NUMBER_HORIZONTAL = "--|";
         for(int i = 0; i<getBoardSize(); i++){
             Constants.NUMBER_HORIZONTAL = Constants.NUMBER_HORIZONTAL.concat("-" + Integer.toString(i+1) + "-|");
         }
@@ -62,7 +67,7 @@ public class State
     }
 
     public void setDivideString(){
-        Constants.DIVIDER_STRING = "-|";
+        Constants.DIVIDER_STRING = "--|";
         for(int i = 0; i<getBoardSize(); i++){
             if(i >= 9){
                 Constants.DIVIDER_STRING = Constants.DIVIDER_STRING.concat("----|");
@@ -76,13 +81,28 @@ public class State
         return Constants.DIVIDER_STRING;
     }
 
-    public void setBoardSring(){
-        Constants.BOARD_STRING = "|";
+    public void setBoardSring10(){
+        Constants.BOARD_STRING10 = "|";
         for(int i = 0; i<getBoardSize(); i++){
             if(i >= 9){
-                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  ");
+                Constants.BOARD_STRING10 = Constants.BOARD_STRING10.concat(" %s  |");
             }else{
-                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s ");
+                Constants.BOARD_STRING10 = Constants.BOARD_STRING10.concat(" %s |");
+            }
+        }
+    }
+
+    public String getBoardString10(){
+        return Constants.BOARD_STRING10;
+    }
+
+    public void setBoardSring(){
+        Constants.BOARD_STRING = " |";
+        for(int i = 0; i<getBoardSize(); i++){
+            if(i >= 9){
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s  |");
+            }else{
+                Constants.BOARD_STRING = Constants.BOARD_STRING.concat(" %s |");
             }
         }
     }
