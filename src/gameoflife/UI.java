@@ -64,8 +64,6 @@ public class UI
                     state.setBoardSize(size);
                     state.setNewBoardSize();
                     state.setDivideString();
-                    state.setBoardSring();
-                    state.setBoardSring10();
                     state.setNumHorizontalString();
                 } catch (Exception e) {
                     System.out.println("Invalid Input");

@@ -27,8 +27,8 @@ public class Constants
     // Strings
     public static String NUMBER_HORIZONTAL = "--|-1-|-2-|-3-|-4-|-5-|-6-|-7-|-8-|-9-|-10-|";
     public static String DIVIDER_STRING = "--|---|---|---|---|---|---|---|---|---|----|";
-    public static String BOARD_STRING = " | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
-    public static String BOARD_STRING10 = "| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s  |";
+    public static final String BOARD_STRING = " %s |";
+    public static final String BOARD_STRING10 = " %s  |";
 
     public static final String PLAYED_OR_NO = "Have you played before?";
     public static final String WELCOME_EXPLANATION_1 = "The Game of Life is not your typical computer game. ";
