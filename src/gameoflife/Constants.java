@@ -30,7 +30,7 @@ public class Constants
     public static final String BOARD_STRING = " %s |";
     public static final String BOARD_STRING10 = " %s  |";
 
-    public static final String PLAYED_OR_NO = "Have you played before?";
+    public static final String PLAYED_OR_NO = "Have you played before? y/n";
     public static final String WELCOME_EXPLANATION_1 = "The Game of Life is not your typical computer game. ";
     public static final String WELCOME_EXPLANATION_2 = "It is cellular automaton.\n";
     public static final String WELCOME_EXPLANATION_3 = "This game became widely known when it was mentioned in an article published by Scientific American in 1970.\n";
