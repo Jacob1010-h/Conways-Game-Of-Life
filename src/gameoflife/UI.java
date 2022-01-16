@@ -174,6 +174,20 @@ public class UI
         return col;
     }
 
+    /**
+     * Tester Code for later
+    */
+    public boolean checkEdges(State state){
+        for(int col = 0; col<state.getBoardSize(); col++){
+            if(state.getBoardCell(1, col) == Constants.PLAYER) return true;
+        }
+        for(int col = 0; col<state.getBoardSize(); col++){
+            if(state.getBoardCell(state.getBoardSize()-2, col) == Constants.PLAYER) return true;
+        }
+
+        return false;
+    }
+    
     public boolean startNewGame() {
         System.out.println(Constants.START_NEW_GAME);
         String yesOrNo = scanner.next();
