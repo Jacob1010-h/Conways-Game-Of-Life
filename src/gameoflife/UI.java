@@ -17,8 +17,6 @@ public class UI
         startScanner = new Scanner(System.in);
     }
 
-    // Utility methods
-    //* Returns a string of what goes in the board
     public String getXOrO(int whoseMove) {
         if(whoseMove == 1){
             return "X";
@@ -27,14 +25,12 @@ public class UI
         }
     }
 
-    //! Checks for a leagal move
     public boolean isLegalMove(State state, int row, int col) {
         return 2 <= row && row <= state.getBoardSize() &&
         2 <= col && col <= state.getBoardSize() &&
         state.getBoardCell(row-1, col-1) == Constants.BLANK;
     }
 
-    //* Asks if the user is finished
     public boolean getFinished(int whoseMove){
         String finished = "";
         while(finished.equals("")){
@@ -53,7 +49,6 @@ public class UI
         return false;
     }
 
-    //! Make Board
     public void makeBoard(State state){        
         int size = 9;
         System.out.println("Set the size of the simulation by inputting a number between 10-20");
@@ -76,7 +71,6 @@ public class UI
         }
     }
 
-    //* Asks the user if they want a preset board
     public boolean presetStart(){
         String preset = "";
         while(preset.equals("")){
@@ -95,7 +89,6 @@ public class UI
         return false;
     }
 
-    //*New Board Functions
     public void createNewBoard(State state){
         for(int row = 0; row < state.getBoardSize(); row++){
             for(int col = 0; col< state.getBoardSize(); col++){
@@ -114,7 +107,6 @@ public class UI
         }
     }
 
-    //* Copy new board to board
     public void copyNewBoard(State state){
         for(int row = 0; row < state.getBoardSize(); row++){
             for(int col = 0; col < state.getBoardSize(); col++){
@@ -125,7 +117,6 @@ public class UI
         }
     }
 
-    //*Get the row
     public int getMoveRow(int whoseMove, State state) {
         int row = 1;
         //* Loops code
@@ -189,7 +180,6 @@ public class UI
         return yesOrNo.equals("Y") || yesOrNo.equals ("y");
     }
 
-    // Printing text methods
     public void printWelcome() {
         System.out.println(Constants.TITLE);
     }

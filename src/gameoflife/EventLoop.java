@@ -72,7 +72,7 @@ public class EventLoop {
                     ui.copyNewBoard(state);
                     System.out.println("Iteration " + (i+1));
                     try {
-                        Thread.sleep(1*1000);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         System.out.println(e);
                     }

@@ -10,7 +10,7 @@ public class Constants
     public static int BOARD_SIZE = 10; //? Is there a way to make a infinite board?
 
     // Valid board values
-    public static final int PLAYER = 1;     // Indicates an "O"
+    public static final int PLAYER = 1;     // Indicates a box
     public static final int BLANK = 0; // Indicates a blank square
 
     // Game states
