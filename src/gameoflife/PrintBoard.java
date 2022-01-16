@@ -24,6 +24,7 @@ public class PrintBoard {
             System.out.println(state.getDevideString());
         }
     }
+    //* Board
     public void printBoard(State state){
         System.out.println(state.getNumHorizontalString());
         for(int row = 0; row < state.getBoardSize(); row++){
