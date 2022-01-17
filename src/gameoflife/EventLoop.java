@@ -68,14 +68,14 @@ public class EventLoop {
                 /**
                  * Tester code for later
                  */
-                /* if(ui.checkEdges(state) == true){
+                if(ui.checkEdges(state) == true){
                     System.out.println("SUFF ON EDGES!!!!");
                     try {
                         Thread.sleep(6000);
                     } catch (InterruptedException e) {
                         System.out.println(e);
                     }
-                } */
+                }
                 ui.createNewBoard(state);
                 for(int i = 0; i<10; i++){
                     ui.clearScreen();
