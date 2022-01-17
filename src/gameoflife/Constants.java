@@ -7,7 +7,7 @@ package gameoflife;
 public class Constants
 {
     // Valid board size
-    public static int BOARD_SIZE = 10; //? Is there a way to make a infinite board?
+    public static int BOARD_SIZE = 10;
 
     // Valid board values
     public static final int PLAYER = 1;     // Indicates a box
