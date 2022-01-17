@@ -8,6 +8,7 @@ public class State
     private int gameState = Constants.STANDBY;
     private int whoseMove = Constants.PLAYER;
     private int board[][]; //! Doesn't set size now to overwrite other code
+    private int replaceBoard[][];
     private int Newboard[][]; //! Doesn't set size now to overwrite other code
 
     public int getGameState() {
@@ -79,6 +80,17 @@ public class State
 
     public String getDevideString(){
         return Constants.DIVIDER_STRING;
+    }
+
+    public void setReplaceBoardSize(int size){
+        replaceBoard = new int[size][size];
+    }
+    public int getReplaceBoardCell(int row, int col){
+        return this.replaceBoard[row][col];
+    }
+
+    public void setReplaceBoardCell(int row, int col, int value){
+        this.replaceBoard[row][col] = value;
     }
 
     //* Presetted board

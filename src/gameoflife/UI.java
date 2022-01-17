@@ -71,6 +71,36 @@ public class UI
         }
     }
 
+    public void copyBoardToReplace(State state){
+        state.setReplaceBoardSize(state.getBoardSize());
+        for(int row = 0; row < state.getBoardSize(); row++){
+            for(int col = 0; col < state.getBoardSize(); col++){
+                if(state.getBoardCell(row, col) == Constants.PLAYER){
+                    state.setReplaceBoardCell(row, col, Constants.PLAYER);
+                }
+            }
+        }
+    }
+
+    public void copyReplaceToBoard(State state){
+        for(int row = 0; row < state.getBoardSize()-3; row++){
+            for(int col = 0; col < state.getBoardSize()-3; col++){
+                if(state.getReplaceBoardCell(row,col) == Constants.PLAYER){
+                    state.setBoardCell(row, col, Constants.PLAYER);
+                }
+            }
+        }
+    }
+
+    public void exceedBoardLimit(State state){
+        copyBoardToReplace(state);
+        state.setBoardSize(state.getBoardSize()+3);
+        state.setDivideString();
+        state.setNumHorizontalString();
+        state.setNewBoardSize();
+        copyReplaceToBoard(state);
+    }
+
     public boolean presetStart(){
         String preset = "";
         while(preset.equals("")){
