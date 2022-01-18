@@ -9,6 +9,7 @@ public class EventLoop {
     UI ui = new UI();
     Life life = new Life();
     PrintBoard print = new PrintBoard();
+    Preset preset = new Preset();
     int row, col;
     boolean finished = false;
 
@@ -33,7 +34,7 @@ public class EventLoop {
                     state.setGameState(Constants.GET_PLAYER_MOVE);
                 }
             }else if (gameState == Constants.PRESET_BLOCKS){
-                state.presetBoard();
+                preset.glider(state);
                 state.setGameState(Constants.RUN);
                 print.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {

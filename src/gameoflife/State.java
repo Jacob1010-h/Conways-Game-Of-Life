@@ -92,14 +92,4 @@ public class State
     public void setReplaceBoardCell(int row, int col, int value){
         this.replaceBoard[row][col] = value;
     }
-
-    //* Presetted board
-    public void presetBoard(){
-        setBoardCell(5-1, 5-1, Constants.PLAYER);
-        setBoardCell(6-1, 6-1, Constants.PLAYER);
-        setBoardCell(7-1, 6-1, Constants.PLAYER);
-        setBoardCell(7-1, 5-1, Constants.PLAYER);
-        setBoardCell(7-1, 4-1, Constants.PLAYER);
-    }
-
 }
