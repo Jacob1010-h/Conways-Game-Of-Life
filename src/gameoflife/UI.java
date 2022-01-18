@@ -206,13 +206,7 @@ public class UI
 
     public boolean checkEdges(State state){
         for(int col = 0; col<state.getBoardSize(); col++){
-            if(state.getBoardCell(1, col) == Constants.PLAYER) return true;
-        }
-        for(int col = 0; col<state.getBoardSize(); col++){
             if(state.getBoardCell(state.getBoardSize()-2, col) == Constants.PLAYER) return true;
-        }
-        for(int row = 0; row<state.getBoardSize(); row++){
-            if(state.getBoardCell(row, 1) == Constants.PLAYER) return true;
         }
         for(int row = 0; row<state.getBoardSize(); row++){
             if(state.getBoardCell(row, state.getBoardSize()-2) == Constants.PLAYER) return true;
