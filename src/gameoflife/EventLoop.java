@@ -28,6 +28,7 @@ public class EventLoop {
                 ui.clearScreen();
                 ui.welcomePlayer(state);
                 ui.makeBoard(state);
+                ui.setItterations();
                 if(ui.presetStart() == true){
                     state.setGameState(Constants.PRESET_BLOCKS);
                 }else{
@@ -67,7 +68,7 @@ public class EventLoop {
                 }
             }else if(gameState == Constants.RUN){
                 ui.createNewBoard(state);
-                for(int i = 0; i<10; i++){
+                for(int i = 0; i<ui.getItterations(); i++){
                     if(ui.checkEdges(state) == true){
                         ui.exceedBoardLimit(state);
                     }
@@ -78,7 +79,7 @@ public class EventLoop {
                     ui.copyNewBoard(state);
                     System.out.println("Iteration " + (i+1));
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(600);
                     } catch (InterruptedException e) {
                         System.out.println(e);
                     }

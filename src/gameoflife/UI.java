@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class UI
 {
+    int itteration = 0;
+
     Scanner stopScanner;
     Scanner scanner;
     Scanner startScanner;
@@ -23,6 +25,28 @@ public class UI
         }else{
             return " ";
         }
+    }
+
+    public void setItterations(){
+        itteration = 4;
+        System.out.println("How many itterations? 5-95");
+        while(itteration <= 4 || itteration >= 96){
+            if(itteration < 96){
+                try {
+                    itteration = startScanner.nextInt();
+                } catch (Exception e) {
+                    System.out.println("Invalid Input");
+                    startScanner.next();
+                }
+            }else{
+                System.out.println("Invalid input");
+                itteration = 0;
+            }            
+        }
+    }
+
+    public int getItterations(){
+        return itteration;
     }
 
     public boolean isLegalMove(State state, int row, int col) {

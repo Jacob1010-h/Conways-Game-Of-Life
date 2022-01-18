@@ -85,6 +85,7 @@ public class State
     public void setReplaceBoardSize(int size){
         replaceBoard = new int[size][size];
     }
+    
     public int getReplaceBoardCell(int row, int col){
         return this.replaceBoard[row][col];
     }
