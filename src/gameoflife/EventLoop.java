@@ -1,8 +1,6 @@
 package gameoflife;
 
 public class EventLoop {
-    //TODO: Make board scale up until [###]
-    //TODO: Shift + F2 does nothing and can be used for running the sim
     
     //* Instance variables for the UI and State classes
     State state = new State();
