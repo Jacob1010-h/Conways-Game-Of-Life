@@ -36,10 +36,12 @@ public class UI
                     itteration = startScanner.nextInt();
                 } catch (Exception e) {
                     System.out.println("Invalid Input");
+                    System.out.println("How many itterations? 5-95");
                     startScanner.next();
                 }
             }else{
                 System.out.println("Invalid input");
+                System.out.println("How many itterations? 5-95");
                 itteration = 0;
             }            
         }
@@ -86,10 +88,12 @@ public class UI
                     state.setNumHorizontalString();
                 } catch (Exception e) {
                     System.out.println("Invalid Input");
+                    System.out.println("Set the size of the simulation by inputting a number between 10-20");
                     startScanner.next();
                 }
             }else{
                 System.out.println("Invalid input");
+                System.out.println("Set the size of the simulation by inputting a number between 10-20");
                 size = 0;
             }
         }
