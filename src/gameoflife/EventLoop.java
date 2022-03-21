@@ -33,7 +33,7 @@ public class EventLoop {
                     state.setGameState(Constants.GET_PLAYER_MOVE);
                 } 
             }else if (gameState == Constants.PRESET_BLOCKS){
-                preset.random(state);
+                preset.glider(state);
                 state.setGameState(Constants.RUN);
                 print.printBoard(state);
             }else if (gameState == Constants.GET_PLAYER_MOVE) {
