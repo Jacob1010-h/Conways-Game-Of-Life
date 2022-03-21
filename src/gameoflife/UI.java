@@ -27,24 +27,33 @@ public class UI
         }
     }
 
-    public void setItterations(){
-        itteration = 4;
-        System.out.println("How many itterations? 5-95");
-        while(itteration <= 4 || itteration >= 96){
-            if(itteration < 96){
+    public int getNums(int range1, int range2, int number, String errorMessage){
+        number = 0;
+        while(number <= range1-1 || number >= range2+1){
+            if(number < range2+1){
                 try {
-                    itteration = startScanner.nextInt();
+                    number = scanner.nextInt();
+                    if(number<range1){
+                        System.out.println(errorMessage);
+                        number = 0;
+                    }
                 } catch (Exception e) {
-                    System.out.println("Invalid Input");
-                    System.out.println("How many itterations? 5-95");
-                    startScanner.next();
+                    System.out.println(errorMessage);
+                    scanner.next();
                 }
             }else{
-                System.out.println("Invalid input");
-                System.out.println("How many itterations? 5-95");
-                itteration = 0;
-            }            
+                System.out.println(errorMessage);
+                number = 0;
+            }
         }
+        
+        return number;
+    }
+
+    public void setItterations(){
+        itteration = 0;
+        System.out.println("How many itterations? 5-95");
+        itteration = getNums(5, 95, itteration, "Invalid Input\nHow many itterations? 5-95");
     }
 
     public int getItterations(){
@@ -76,26 +85,15 @@ public class UI
     }
 
     public void makeBoard(State state){        
-        int size = 9;
+        int size = 0;
         System.out.println("Set the size of the simulation by inputting a number between 10-20");
-        while(size <= 9 || size >= 21){
-            if(size < 21){
-                try{
-                    size = startScanner.nextInt(); 
-                    state.setBoardSize(size);
-                    state.setNewBoardSize();
-                    state.setDivideString();
-                    state.setNumHorizontalString();
-                } catch (Exception e) {
-                    System.out.println("Invalid Input");
-                    System.out.println("Set the size of the simulation by inputting a number between 10-20");
-                    startScanner.next();
-                }
-            }else{
-                System.out.println("Invalid input");
-                System.out.println("Set the size of the simulation by inputting a number between 10-20");
-                size = 0;
-            }
+        size = getNums(10, 20, size, "Invalid Input\nSet the size of the simulation by inputting a number between 10-20");
+    
+        if(size < 21){
+            state.setBoardSize(size);
+            state.setNewBoardSize();
+            state.setDivideString();
+            state.setNumHorizontalString();
         }
     }
 
@@ -177,58 +175,28 @@ public class UI
 
     public int getMoveRow(int whoseMove, State state) {
         int row = 1;
-        //* Loops code
-        //!Checks if value is too high or low
-        while (row <= 1 || row >= state.getBoardSize()) {
-            if(row < state.getBoardSize()){
-                try {
-                    System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove));
-                    row = scanner.nextInt();
-                    if(row == 1){
-                        printInvalidRowOrColumn();
-                        System.out.println();
-                        row = 1;
-                    }
-                } catch (Exception e) {
-                    //! ERROR: If the value isnt an int
-                    System.out.println(Constants.INVALID_ROW_OR_COLUMN);
-                    scanner.next();
-                }
-            }else{
-                printInvalidRowOrColumn();
-                System.out.println();
-                row = 1;
-            }
+
+        if(row < state.getBoardSize()){
+        
+            System.out.printf(Constants.GET_ROW_MOVE, getXOrO(whoseMove));
+            
         }
+
+        row = getNums(2, state.getBoardSize()-1, row, Constants.INVALID_ROW_OR_COLUMN + "\n\n" + Constants.GET_ROW_MOVE_NO_PLAYER);
+        
         return row;
     } 
 
     public int getMoveCol(int whoseMove, State state) {
         int col = 1;
-        //* Loops code
-        //!Checks if value is too high or low
-        while (col <= 1 || col >= state.getBoardSize()) {
-            //! If value is <11
-            if (col < state.getBoardSize()){
-                try {
-                    System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove));
-                    col = scanner.nextInt();
-                    if(col == 1){
-                        printInvalidRowOrColumn();
-                        System.out.println();
-                        col = 1;
-                    }
-                } catch (Exception e) {
-                    System.out.println(Constants.INVALID_ROW_OR_COLUMN);
-                    scanner.next();
-                }
-            }else{
-                //! ERROR: If the value isnt an int
-                printInvalidRowOrColumn();
-                System.out.println();
-                col = 1;
-            }
+        
+        if(col < state.getBoardSize()){
+        
+            System.out.printf(Constants.GET_COL_MOVE, getXOrO(whoseMove));
+            
         }
+        col = getNums(2, state.getBoardSize()-1, col, Constants.INVALID_ROW_OR_COLUMN + "\n\n" + Constants.GET_COL_MOVE_NO_PLAYER);
+       
         return col;
     }
 

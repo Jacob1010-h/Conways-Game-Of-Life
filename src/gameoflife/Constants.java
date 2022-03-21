@@ -50,7 +50,9 @@ public class Constants
     public static final String TITLE = "Thanks for playing the Game Of Life!";
     public static final String INVALID_ROW_OR_COLUMN = "Your row and column must be a number one layer inside of the board size";
     public static final String GET_ROW_MOVE = "Player %s: Enter the row for your next block";
+    public static final String GET_ROW_MOVE_NO_PLAYER = "Enter the row for your next block";
     public static final String GET_COL_MOVE = "Player %s: Enter the column for your next block";
+    public static final String GET_COL_MOVE_NO_PLAYER = "Enter the column for your next block";
     public static final String INVALID_MOVE_ERROR = "Row %d column %d is not a valid position. Please try again";
     public static final String PRESET_START= "Do you want a preset board? y/n";
     public static final String CHECK_STOP_STR = "Do you want to run the program? y/n";
